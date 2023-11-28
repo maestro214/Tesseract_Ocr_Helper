@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "tesseract-train",
+  "private_key_id": "1c726ddac2a6f893ddeb4c436827365414e7ccbb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDHYOcvIewrh35q\n8iMzae1hfMCEVF30Mo+COL0oliF+hmM5LriLSptMQfOeybbYcPwECEd9qn3/CBJ5\nviqwpUf6QJL8dhhI6ZBUkbImON5lZryEMS4SrLag2uPp+zLgn7sBqanYsKcG4nS8\nq5Q6cyKO2fexTMxzbIAUM4yNxvFLV68IJwmrQQJHkStv7MH3rfK2DpYY0NSvKlsl\ntG1pk3UZtvgc96mY3ugRCPQAbMLS1n8AJXZVB1LXTC6kysYlUvj6DoumbKDXRW8i\nJAYeMUaEOxqIkJwejroLqg7OKlRR1OEcgp+1u0VoqcZ1E8y8bVDUnwzzm8BUSvSG\nHCYQc5WlAgMBAAECggEADnAa0wPFWvJGZM82XlrtiObkTWY19uDnGdqAVDKUUq8U\n+1yXROWjsQDWTVQ1IfUDQvV929X0ptBk/3JBHCaekOWL31gGnS0QucG34WMH3oGd\n5YK8NTeoR/th5XKT4MagX61Ix+YkSkWBh5zIhfe1c8Zz/zUHryoXF59ormb5gpJC\nYRU2qz/bCWlYAyAWfgEaqpzcmVPPh+Nyh8/JPbJ9xjruRYxU25o6ZJcF5VOjd3DE\nmvvSyEUO8iSS0C/e0Fnn8Zvo3rIkrQ7nfeBCNsb5fjWzsHFJKqwUIA+ILxmqVs3V\nqzWPWQ57eABszuIKZWgY/mR2e1kNj2eblSb+vN+f4QKBgQDoNUTr5JklKwglepX2\nsg4BCizw9a3XMCxtYgU17peoY6ZnUElh/aotZvMs9a4KTl/D+bk1WJojPNB/RSEc\nO+zO+i3lZ9NkYh5PxAhfnNnDzJLXVC4Srps2TKq6+gtNIgRklqdYlIqnxJuKR4ZH\nm+UCu/Yg4tPgNZYLv577DIMltQKBgQDbzoblTPhZCbT44QrdP2hB89Rhwy27em0N\nw9jgCEEZR2siXQGUjuTAVo9x0AlFVoBiO1yh3GcK++IrF/2mxWhp6TrS25+JS9Qx\nYxok6FM1KCJI7sPZ91CH2N9BM9TeuQ+Cm2KUVRmuGBKdWNBCHayBbDfrmWoDI72/\nWg+r7Q6mMQKBgEQOmMyqi1ghbJnPe/R56zDS0qks2G6hZ+QHPo+4BisMSdEt7tQR\njLcR3WPn/cJ3hgniPy4rccGyKUmj8ThdN+LR4HHEJGjfeRLX2bxsNEb2xnLl8Tr4\ngfVAMynp7zYEKlVw8ks7/gd90DiPDgQe5NgQTusEkCS+j+ORnf7mg+mhAoGBANN3\nK9wqYrr2Vb8icltMhzb8J5UuOy8kpwoZIurVxhtV1EIpDD4qAvTv0e0C4ghtIfJf\nfczSx+ePUJV47TSmsr9B/K+jTya9ZxVkbGCZioOXavSTkKSABF/NS2vlO6RSkhNq\n/joKbTxKOI5cRW92MOIKhPoKjC0dE42mTXFwDSnhAoGAQEOE6+RAM50hUfM4CdaY\nyVbQo16EnJU+Drl67YcgDUecVRn6gAgSEIc65YeFpOLFZ4J/lMtOncI2ziHPyzwc\nE5NpBBj1eEdn95PtRxuW4S9B0iTmhtOnhYbIyik35m2C4FjNdB5faK5226eB1fjA\nwBBjz9YTY9DYDDyJRpweQWo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "tesseract-train@tesseract-train.iam.gserviceaccount.com",
+  "client_id": "103116038954109314726",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tesseract-train%40tesseract-train.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
