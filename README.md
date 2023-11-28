@@ -1,0 +1,2 @@
+# Tesseract_Ocr_Helper
+Tesseract_Ocr_Helper
