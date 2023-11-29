@@ -4,6 +4,7 @@ import tkinter.font as tkFont
 import pyperclip
 import threading
 import gspread
+from tkinter import filedialog  # filedialog 모듈 추가
 from tkinter import ttk
 from colorama import init, Fore, Style
 from oauth2client.service_account import ServiceAccountCredentials
@@ -179,6 +180,21 @@ def combine_and_delete(output_directory, combined_output_file):
     update_google_sheets()
 
 def on_Test_button_click():
+    global input_directory
+    # 이미지 테스트를 시작하기 전에 selected_directory_text에서 텍스트를 가져와 input_directory에 저장
+    input_directory = selected_directory_text.get()
+
+    # 입력 디렉토리가 비어 있는지 확인
+    if not input_directory:
+        status_label.config(text="경로 설정이 필요합니다.", fg="red")
+        return
+
+    # 입력 디렉토리가 유효한지 확인
+    if not os.path.exists(input_directory):
+        status_label.config(text="유효하지 않은 경로입니다.", fg="red")
+        return
+    
+    
     selected_language = language_combobox.get()
     process_images_threaded(selected_language)
     
@@ -211,6 +227,17 @@ def update_google_sheets():
     worksheet.append_row(data_to_insert)
 
     status_label.config(text="데이터가 성공적으로 Googlesheet에 추가되었습니다.",fg="green")
+
+
+def select_input_directory():
+    global input_directory
+    input_directory = filedialog.askdirectory()  # tkinter.filedialog 대신 filedialog 사용
+    if input_directory:
+        selected_directory_text.delete(0, tk.END)  # 기존 텍스트 삭제
+        selected_directory_text.insert(tk.END, input_directory)  # 새로운 디렉토리 경로 삽입
+    
+        
+
     
 #def background_process(selected_language):
 #    # 여기에 백그라운드에서 수행될 작업을 추가
@@ -231,8 +258,8 @@ app.title("Tesseract_Ocr_Helper Ver.1")
 
 # Box데이터를 수정하고 삭제할 경로 
 directory_path = "C:\\Users\\karuj\\Desktop\\Tesseract Workspace"
-# 입력 이미지가 있는 디렉토리 경로 
-input_directory = "C:\\Users\\karuj\\Desktop\\test Image"
+## 입력 이미지가 있는 디렉토리 경로 
+#input_directory = "C:\\Users\\karuj\\Desktop\\4000x441"
 # Tesseract 결과를 저장할 디렉토리 경로 
 output_directory = "C:\\Users\\karuj\\Desktop\\Tesseract Workspace\\ocroutput"
 # Google Sheets url
@@ -246,7 +273,7 @@ file_path = 'C:\\Users\\karuj\\Desktop\\Tesseract Workspace\\ocroutput\\combined
     
 
 # 응용프로그램 크기 설정
-app.geometry("480x600")
+app.geometry("480x640")
 
 # 텍스트 입력 창
 text_entry = tk.Text(app, height=13, width=65, wrap=tk.WORD)
@@ -261,29 +288,40 @@ wrap_button_label = tk.Label(app, text="⚠️⚠️Wrap Text 버튼을 누를�
 wrap_button_label.grid(row=2, column=0, columnspan=2, pady=2)
 
 # Wrap 버튼 
-wrap_button = tk.Button(app, text="Wrap Text", command=on_wrap_button_click)
-wrap_button.grid(row=3, column=0, pady=2, padx=(20, 60))
+wrap_button = tk.Button(app, text="Wrap Text", command=on_wrap_button_click, width=15)
+wrap_button.grid(row=3, column=0, pady=10, padx=(80, 10), sticky=tk.W)  # 수정된 padx
 
 # Change Box Text 버튼
-change_box_text_button = tk.Button(app, text="Change Box Text", command=on_change_box_text_button_click)
-change_box_text_button.grid(row=3, column=0, columnspan=2, pady=10)
+change_box_text_button = tk.Button(app, text="Change Box Text", command=on_change_box_text_button_click, width=15)
+change_box_text_button.grid(row=3,column=0, pady=10, padx=(10, 10), sticky=tk.E)  # 수정된 padx
 
 # Clean 버튼
-clean_button = tk.Button(app, text="Clean", command=on_clean_button_click)
-clean_button.grid(row=3, column=1, pady=10, padx=(40, 0)) 
+clean_button = tk.Button(app, text="Clean", command=on_clean_button_click, width=15)
+clean_button.grid(row=3,  column=1, pady=5, padx=(5, 1), sticky=tk.W)
 
 # 상태 레이블
 status_label = tk.Label(app, text="", fg="green")
 status_label.grid(row=4, column=0, columnspan=2, pady=5)
 
+# 선택한 이미지 디렉토리를 보여줄 텍스트박스
+selected_directory_text = tk.Entry(app, width=40)
+selected_directory_text.insert(tk.END, "C:\\Users\\karuj\\Desktop\\test Image")
+selected_directory_text.grid(row=5, column=0, pady=10, padx=(10, 5), sticky=tk.E)
+
+# 테스트 이미지 디렉토리 경로 설정
+select_input_directory_button = tk.Button(app, text="이미지 경로 선택", command=select_input_directory)
+select_input_directory_button.grid(row=5, column=1, pady=5, padx=(5, 1), sticky=tk.W)
+
+
+
 # 콤보박스 위젯
 language_combobox = ttk.Combobox(app, values=["kor+eng","eng+kor", "kor", "eng"], width=15, height=30, state="readonly")
 language_combobox.set("kor+eng")  # 초기 선택값 설정
-language_combobox.grid(row=5, column=0, pady=10, padx=(10, 5), sticky=tk.E)  # Updated row, padx, and sticky values
+language_combobox.grid(row=6, column=0, pady=10, padx=(10, 5), sticky=tk.E)  # Updated row, padx, and sticky values
 
 # 이미지 테스트 버튼
 image_test_button = tk.Button(app, text="ImageTest", command=on_Test_button_click)
-image_test_button.grid(row=5, column=1, pady=10, padx=(5, 10), sticky=tk.W)  # Updated row, padx, and sticky values
+image_test_button.grid(row=6, column=1, pady=10, padx=(5, 10), sticky=tk.W)  # Updated row, padx, and sticky values
 
 # Tkinter 이벤트 루프 시작
 app.mainloop()
